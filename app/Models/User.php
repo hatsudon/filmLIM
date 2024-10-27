@@ -42,4 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function cameras()
+    {
+        return $this->hasMany(Camera::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('cameras');
+    }
 }
