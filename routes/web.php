@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CamerasController;
+use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\TopController;
 
 /*
@@ -26,9 +27,9 @@ Route::middleware('auth')->group(function () {
     //Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('record_select', [TopController::class, 'record_select'])->name('record_select');
-    Route::get('photo_index', [TopController::class, 'photo_index'])->name('photo_index');
     
-    Route::resource('cameras', CamerasController::class, ['only' => ['store', 'destroy']]);
+    Route::resource('cameras', CamerasController::class);
+    Route::resource('photos', PhotosController::class);
     
 });
 

@@ -7,7 +7,7 @@
     </li>
     {{-- recordタブ --}}
     <li>
-        <a href="{{ route('photo_index') }}">
+        <a href="{{ route('photos.index') }}">
             index
         </a>
     </li>

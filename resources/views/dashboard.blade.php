@@ -5,7 +5,7 @@
         @include('commons.menu')
         <div class="sm:grid sm:grid-cols-3 sm:gap-10">
             <div class="sm:col-span-2">
-                <p>トップページの内容を表示</p>
+                <h2>{{ $user->name }}さんのマイページ</h2>
             </div>
         </div>
     @else
