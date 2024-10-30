@@ -26,8 +26,8 @@ class CamerasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'memo' => 'max:255',
+            'name' => ['required','max:255'],
+            'memo' => ['max:255'],
         ]);
         
         // 認証済みユーザー（閲覧者）の投稿として作成（リクエストされた値をもとに作成）

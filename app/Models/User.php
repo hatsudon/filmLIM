@@ -48,6 +48,14 @@ class User extends Authenticatable
         return $this->hasMany(Camera::class);
     }
     
+    /**
+     * ユーザーのすべての写真を取得
+     */
+    public function user_photos()
+    {
+        return $this->hasManyThrough(Photo::class, Camera::class);
+    }
+    
     public function loadRelationshipCounts()
     {
         $this->loadCount('cameras');
