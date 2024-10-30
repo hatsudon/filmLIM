@@ -10,13 +10,14 @@ use App\Models\User;
 
 class PhotosController extends Controller
 {
+    //写真一覧ページへ(index)
     public function index()
     {
         $data = [];
-        if (\Auth::check()) { // 認証済みの場合
+        if (\Auth::check()) {
             // 認証済みユーザーを取得
             $user = \Auth::user();
-            // ユーザーの投稿の一覧を作成日時の降順で取得
+            // ユーザーの写真の一覧を作成日時の降順で取得
             $photos = $user->user_photos()->orderBy('created_at', 'desc')->paginate(10);
             $data = [
                 'user' => $user,
@@ -24,14 +25,11 @@ class PhotosController extends Controller
             ];
         }
         
-        // dashboardビューでそれらを表示
         return view('photos.index', $data);
     }
     
     
-    /**
-     * 写真の追加ページへ遷移
-     */
+    //カメラ追加ページへ(create)
     public function create()
     {
         $photo = new Photo;
@@ -46,9 +44,7 @@ class PhotosController extends Controller
         ]);
     }
     
-     /**
-     * 写真追加アクション
-     */
+    //写真追加アクション
     public function store(Request $request)
     {
         $request->validate([
@@ -66,48 +62,31 @@ class PhotosController extends Controller
         
         $photo->save();
         
-        // トップページへリダイレクトさせる
         return redirect('/');
     }
     
-    /**
-     * 写真情報詳細
-     */
+    //写真詳細ページへ(show)
     public function show(string $id)
     {
         $photo = Photo::findOrFail($id);
         
-        //if (\Auth::id() === $photo->user_id) {
         // メッセージ詳細ビューでそれを表示
             return view('photos.show', [
                 'photo' => $photo,
             ]);
-        //}
-        //else {
-           // return redirect('/');
-        //}
     }
     
-    /**
-     * 写真情報変更ページへ遷移
-     */
+    //写真編集ページへ(edit)
     public function edit(string $id)
     {
         $photo = Photo::findOrFail($id);
 
-        //if (\Auth::id() === $task->user_id) {
             return view('photos.edit', [
                 'photo' => $photo,
             ]);
-        //}
-        //else {
-            //return redirect('/');
-        //}
     }
     
-    /**
-     * 写真変更アクション
-     */
+    //写真編集アクション(update)
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -118,27 +97,21 @@ class PhotosController extends Controller
         
         $photo = Photo::findOrFail($id);
         
-        //if (\Auth::id() === $task->user_id) {
         $photo->latitude = $request->latitude;
         $photo->longitude = $request->longitude;
         $photo->memo = $request->memo;
         
         $photo->save();
-        //}
 
         return redirect('/');
     }
     
-    /**
-     * 写真削除アクション
-     */
+    //写真削除アクション(destroy)
     public function destroy(string $id)
     {
         $photo = Photo::findOrFail($id);
         
-        //if (\Auth::id() === $task->user_id) {
             $photo->delete();
-        //}
 
         return redirect('/');
     }

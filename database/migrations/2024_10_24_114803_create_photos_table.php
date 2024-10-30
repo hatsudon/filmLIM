@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('filename')->nullable();
             $table->timestamps();
             
-            $table->foreign('camera_id')->references('id')->on('cameras');
+            $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
         });
     }
 

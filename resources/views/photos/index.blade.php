@@ -28,5 +28,10 @@
             </tbody>
         </table>
     @endif
+
+{{-- カメラ情報へのリンク --}}
+    <a class="btn btn-primary" a href="{{ route('cameras.index') }}">
+            カメラ情報
+    </a>
     
 @endsection

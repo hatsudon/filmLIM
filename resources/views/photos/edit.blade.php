@@ -15,14 +15,14 @@
                     <label for="latitude" class="label">
                         <span class="label-text">緯度:</span>
                     </label>
-                    <input type="text" name="latitude" value="{{ $photo->latitude }}" class="input input-bordered w-full">
+                    <input type="text" placeholder="11.111111(小数点以下6桁)" name="latitude" value="{{ $photo->latitude }}" class="input input-bordered w-full">
                 </div>
                 
                 <div class="form-control my-4">
                     <label for="longitude" class="label">
                         <span class="label-text">経度:</span>
                     </label>
-                    <input type="text" name="longitude" value="{{ $photo->longitude }}" class="input input-bordered w-full">
+                    <input type="text" placeholder="111.111111(小数点以下6桁)" name="longitude" value="{{ $photo->longitude }}" class="input input-bordered w-full">
                 </div>
                 
                 <div class="form-control my-4">

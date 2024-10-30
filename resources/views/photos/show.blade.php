@@ -42,7 +42,7 @@
     {{-- 写真編集ページへのリンク --}}
     <a class="btn btn-outline" href="{{ route('photos.edit', $photo->id) }}">この写真の情報を変更</a>
     
-    {{-- メッセージ削除フォーム --}}
+    {{-- 写真削除フォーム --}}
     <form method="POST" action="{{ route('photos.destroy', $photo->id) }}" class="my-2">
         @csrf
         @method('DELETE')

@@ -11,14 +11,14 @@
             @csrf
 
                 <div class="form-control my-4">
-                    <label for="content" class="label">
+                    <label for="name" class="label">
                         <span class="label-text">カメラの名前:</span>
                     </label>
                     <input type="text" name="name" class="input input-bordered w-full">
                 </div>
                 
                 <div class="form-control my-4">
-                    <label for="title" class="label">
+                    <label for="memo" class="label">
                         <span class="label-text">備考:</span>
                     </label>
                     <input type="text" name="memo" class="input input-bordered w-full">
