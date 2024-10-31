@@ -14,16 +14,14 @@ class PhotosController extends Controller
     public function index()
     {
         $data = [];
-        if (\Auth::check()) {
-            // 認証済みユーザーを取得
-            $user = \Auth::user();
-            // ユーザーの写真の一覧を作成日時の降順で取得
-            $photos = $user->user_photos()->orderBy('created_at', 'desc')->paginate(10);
-            $data = [
-                'user' => $user,
-                'photos' => $photos,
-            ];
-        }
+        // 認証済みユーザーを取得
+        $user = \Auth::user();
+        // ユーザーの写真の一覧を作成日時の降順で取得
+        $photos = $user->user_photos()->orderBy('created_at', 'desc')->paginate(10);
+        $data = [
+            'user' => $user,
+            'photos' => $photos,
+        ];
         
         return view('photos.index', $data);
     }

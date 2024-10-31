@@ -5,11 +5,11 @@
             record
         </a>
     </li>
-    {{-- recordタブ --}}
+    {{-- indexタブ --}}
     <li>
         <a href="{{ route('photos.index') }}">
             index
         </a>
     </li>
     
-</div>
+</ul>

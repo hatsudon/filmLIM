@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('commons.index_select')
+
 <div class="prose ml-4">
         <h2 class="text-lg">photo index</h2>
     </div>
@@ -11,7 +13,7 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>カメラid</th>
+                    <th>カメラ</th>
                     <th>日時</th>
                     <th>写真</th>
                 </tr>
@@ -20,7 +22,7 @@
                 @foreach ($photos as $photo)
                 <tr>
                     <td><a class="link link-hover text-info" href="{{ route('photos.show', $photo->id) }}">{{ $photo->id }}</a></td>
-                    <td>{{ $photo->camera_id }}</td>
+                    <td>{{ $photo->camera->name }}</td>
                     <td>{{ $photo->created_at }}</td>
                     <td>{{ $photo->filename }}</td>
                 </tr>
@@ -28,10 +30,5 @@
             </tbody>
         </table>
     @endif
-
-{{-- カメラ情報へのリンク --}}
-    <a class="btn btn-primary" a href="{{ route('cameras.index') }}">
-            カメラ情報
-    </a>
     
 @endsection

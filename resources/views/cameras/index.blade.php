@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('commons.index_select')
+
 <div class="prose ml-4">
         <h2 class="text-lg">camera index</h2>
     </div>
