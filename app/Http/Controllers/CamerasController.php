@@ -51,7 +51,6 @@ class CamerasController extends Controller
             'memo' => $request->memo,
         ]);
         
-        // トップページへリダイレクトさせる
         return redirect('/');
     }
     
@@ -102,8 +101,8 @@ class CamerasController extends Controller
         $camera->memo = $request->memo;
         $camera->save();
         }
-
-        return redirect('/');
+        
+        return redirect()->route('cameras.index');
     }
 
     //カメラ削除アクション(destroy)
@@ -115,6 +114,6 @@ class CamerasController extends Controller
             $camera->delete();
         }
         
-        return redirect('/');
+        return redirect()->route('cameras.index');
     }
 }

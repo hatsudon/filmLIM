@@ -103,7 +103,7 @@ class PhotosController extends Controller
         
         $photo->save();
 
-        return redirect('/');
+        return redirect()->route('photos.index');
     }
     
     //写真削除アクション(destroy)
@@ -113,7 +113,7 @@ class PhotosController extends Controller
         
             $photo->delete();
 
-        return redirect('/');
+        return redirect()->route('photos.index');
     }
     
 }
