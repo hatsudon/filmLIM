@@ -15,4 +15,13 @@ class Photo extends Model
     {
         return $this->belongsTo(Camera::class);
     }
+    
+    public function getLatitudeAttribute($latitude)
+    {
+        return $this->attributes['latitude'] = sprintf('%s', number_format($latitude, 6));
+    }
+    public function getLongitudeAttribute($longitude)
+    {
+        return $this->attributes['longitude'] = sprintf('%s', number_format($longitude, 6));
+    }
 }
