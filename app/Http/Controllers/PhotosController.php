@@ -70,20 +70,34 @@ class PhotosController extends Controller
     {
         $photo = Photo::findOrFail($id);
         
+        $camera = $photo->camera;
+        
+        if (\Auth::id() === $camera->user_id) {
         // メッセージ詳細ビューでそれを表示
             return view('photos.show', [
                 'photo' => $photo,
             ]);
+        }
+        else {
+            return redirect('/');
+        }
     }
     
     //写真編集ページへ(edit)
     public function edit(string $id)
     {
         $photo = Photo::findOrFail($id);
-
+        
+        $camera = $photo->camera;
+        
+        if (\Auth::id() === $camera->user_id) {
             return view('photos.edit', [
                 'photo' => $photo,
             ]);
+        }
+        else {
+            return redirect('/');
+        }
     }
     
     //写真編集アクション(update)
@@ -97,11 +111,15 @@ class PhotosController extends Controller
         
         $photo = Photo::findOrFail($id);
         
-        $photo->latitude = $request->latitude;
-        $photo->longitude = $request->longitude;
-        $photo->memo = $request->memo;
+        $camera = $photo->camera;
         
-        $photo->save();
+        if (\Auth::id() === $camera->user_id) {
+            $photo->latitude = $request->latitude;
+            $photo->longitude = $request->longitude;
+            $photo->memo = $request->memo;
+            
+            $photo->save();
+        }
 
         return redirect()->route('photos.index');
     }
@@ -111,7 +129,11 @@ class PhotosController extends Controller
     {
         $photo = Photo::findOrFail($id);
         
+        $camera = $photo->camera;
+        
+        if (\Auth::id() === $camera->user_id) {
             $photo->delete();
+        }
 
         return redirect()->route('photos.index');
     }

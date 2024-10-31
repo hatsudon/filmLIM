@@ -96,10 +96,10 @@ class CamerasController extends Controller
         $camera = Camera::findOrFail($id);
         
         if (\Auth::id() === $camera->user_id) {
-        // メッセージを更新
-        $camera->name = $request->name;
-        $camera->memo = $request->memo;
-        $camera->save();
+            // メッセージを更新
+            $camera->name = $request->name;
+            $camera->memo = $request->memo;
+            $camera->save();
         }
         
         return redirect()->route('cameras.index');
