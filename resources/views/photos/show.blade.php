@@ -8,8 +8,8 @@
 
     <table class="table w-full my-4">
         <tr>
-            <th>カメラid</th>
-            <td>{{ $photo->camera_id }}</td>
+            <th>カメラ</th>
+            <td>{{ $photo->camera->name }}</td>
         </tr>
         
         <tr>
@@ -32,10 +32,21 @@
             <td>{{ $photo->memo }}</td>
         </tr>
         
-        <tr>
-            <th>写真データ</th>
-            <td>{{ $photo->filename }}</td>
-        </tr>
+        @if(!($photo->filename == null))
+            <tr>
+                <th>写真</th>
+                <td>
+                    <a href="{{ $photo->photo_url }}">
+                    <img src="{{ $photo->photo_url }}"  width="200" height="200">
+                    </a>
+                </td>
+            </tr>
+        @else
+            <tr>
+                <th>写真</th>
+                <td>写真は登録されていません</td>
+            </tr>
+        @endif
         
     </table>
     
@@ -48,7 +59,7 @@
         @method('DELETE')
         
         <button type="submit" class="btn btn-error btn-outline" 
-            onclick="return confirm('id = {{ $photo->id }} のタスクを削除します。よろしいですか？')">削除</button>
+            onclick="return confirm('id = {{ $photo->id }} の写真を削除します。よろしいですか？')">削除</button>
     </form>
 
 @endsection

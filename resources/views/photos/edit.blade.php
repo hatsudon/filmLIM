@@ -7,7 +7,7 @@
     </div>
 
     <div class="flex justify-center">
-        <form method="POST" action="{{ route('photos.update', $photo->id) }}" class="w-1/2">
+        <form method="POST" action="{{ route('photos.update', $photo->id) }}" enctype="multipart/form-data"　class="w-1/2">
             @csrf
             @method('PUT')
 
@@ -31,6 +31,12 @@
                     </label>
                     <input type="text" name="memo" value="{{ $photo->memo }}" class="input input-bordered w-full">
                 </div>
+                
+                <div class="form-control my-4">
+                    <input type="file" name="file">
+                </div>
+                
+                
 
             <button type="submit" class="btn btn-primary btn-outline">変更</button>
         </form>

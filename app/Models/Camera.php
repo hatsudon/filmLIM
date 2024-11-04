@@ -20,4 +20,18 @@ class Camera extends Model
     {
         return $this->hasMany(Photo::class);
     }
+    
+    //カメラ削除アクション時に子テーブルの画像ファイルを削除
+    protected static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($camera) {
+            $photos = $camera->photos;
+            
+            foreach($photos as $photo) {
+                \Storage::delete('public/images/'. $photo->filename);
+            }
+            
+        });
+    }
 }

@@ -24,7 +24,13 @@
                     <td><a class="link link-hover text-info" href="{{ route('photos.show', $photo->id) }}">{{ $photo->id }}</a></td>
                     <td>{{ $photo->camera->name }}</td>
                     <td>{{ $photo->created_at }}</td>
-                    <td>{{ $photo->filename }}</td>
+                    
+                    @if(!($photo->filename == null))
+                    <td><img src="{{ $photo->photo_url }}"  width="100" height="100"></td>
+                    @else
+                    <td><a class="btn btn-outline" href="{{ route('photos.edit', $photo->id) }}">写真を登録する</a></td>
+                    @endif
+                    
                 </tr>
                 @endforeach
             </tbody>

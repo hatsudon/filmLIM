@@ -105,13 +105,31 @@ class PhotosController extends Controller
             'latitude' => ['required','numeric','regex:/^[-]?((([0-8]?[0-9])(\.[0-9]{6}))|90(\.0{6})?)$/'],
             'longitude' => ['required','numeric','regex:/^[-]?(((([1][0-7][0-9])|([0-9]?[0-9]))(\.[0-9]{6}))|180(\.0{6})?)$/'],
             'memo' => ['max:255'],
+            'file' => ['file', 'image', 'mimetypes:image/jpeg,image/jpg,image/png'],
         ]);
         
         $photo = Photo::findOrFail($id);
         
         $camera = $photo->camera;
         
-        if (\Auth::id() === $camera->user_id) {
+        if (\Auth::id() === $camera->user_id){
+            
+            //画像ファイルが送られてきたとき
+            if (isset($request->file)){
+                //登録している画像ファイルを削除
+                \Storage::delete('public/images/'. $photo->filename);
+                
+                //画像ファイルの保存
+                $file = $request->file('file');
+                $ext = $file->getClientOriginalExtension();
+                $filename = time() . "." . $ext;
+                $file->storeAs('public/images', $filename);
+                
+                //画像パスをDBに保存
+                $photo->filename = $filename;
+                }
+            
+            //画像以外の編集内容をDBに保存
             $photo->latitude = $request->latitude;
             $photo->longitude = $request->longitude;
             $photo->memo = $request->memo;
@@ -130,6 +148,9 @@ class PhotosController extends Controller
         $camera = $photo->camera;
         
         if (\Auth::id() === $camera->user_id) {
+            // 画像ファイルを削除
+            \Storage::delete('public/images/'. $photo->filename);
+            
             $photo->delete();
         }
 
