@@ -127,7 +127,7 @@ class PhotosController extends Controller
                 
                 //画像パスをDBに保存
                 $photo->filename = $filename;
-                }
+            }
             
             //画像以外の編集内容をDBに保存
             $photo->latitude = $request->latitude;

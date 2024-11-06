@@ -1,15 +1,14 @@
-<ul class="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
+<ul class="menu menu-lg bg-base-200 rounded-box w-full">
     {{-- recordタブ --}}
     <li>
         <a href="{{ route('record_select') }}">
-            record
+            Record
         </a>
     </li>
     {{-- indexタブ --}}
     <li>
         <a href="{{ route('photos.index') }}">
-            index
+            List
         </a>
     </li>
-    
 </ul>

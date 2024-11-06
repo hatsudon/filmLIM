@@ -3,11 +3,23 @@
 @section('content')
     @if (Auth::check())
         @include('commons.menu')
-        <div class="sm:grid sm:grid-cols-3 sm:gap-10">
-            <div class="sm:col-span-2">
-                <h2>{{ $user->name }}さんのマイページ</h2>
-            </div>
-        </div>
+       
+        <h2 class="text-2xl">{{ $user->name }}さんのマイページ</h2>
+        
+        
+        <ul class="mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 xl:gap-8">
+            @foreach ($photos as $photo)
+            <li class="group h-64 flex justify-end items-end bg-gray-100 overflow-hidden rounded-lg shadow-lg relative">
+                <a href="{{ $photo->photo_url }}">
+                <img
+                    src="{{ $photo->photo_url }}"
+                    class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition duration-200"
+                />
+                </a>
+            </li>
+            @endforeach
+        </ul>
+        
     @else
         <div class="prose hero bg-base-200 mx-auto max-w-full rounded">
             <div class="hero-content text-center my-10">

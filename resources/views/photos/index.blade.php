@@ -5,7 +5,7 @@
 @include('commons.index_select')
 
 <div class="prose ml-4">
-        <h2 class="text-lg">photo index</h2>
+        <h2 class="text-lg">写真一覧</h2>
     </div>
 
     @if (isset($photos))
