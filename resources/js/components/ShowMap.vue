@@ -1,24 +1,33 @@
 <script setup>
+import { GoogleMap, Marker } from 'vue3-google-map'
 
 
 const props = defineProps({
   latitude: {
-    type: String,
+    type: Number,
     required: true
   },
   longitude: {
-    type: String,
+    type: Number,
     required: true
   }
 })
 
-console.log(props.latitude)
-console.log(props.longitude)
+const map_api_key = import.meta.env.VITE_GOOGLEMAP_API_KEY
+
+const center = { lat: parseFloat(props.latitude), lng: parseFloat(props.longitude) }
 
 </script>
 
 <template>
-    
 
+  <GoogleMap
+  :api-key="map_api_key"
+  style="width: 250px; height: 250px"
+  :center="center"
+  :zoom="15"
+  >
+    <Marker :options="{ position: center }" />
+  </GoogleMap>   
 
 </template>

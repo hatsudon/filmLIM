@@ -29,7 +29,7 @@
         <tr>
             <th>地図</th>
             <td>
-                <show-map latitude='@json($photo->latitude)' longitude='@json($photo->longitude)'></show-map>
+                <show-map latitude=@json($photo->latitude) longitude=@json($photo->longitude)></show-map>
                 
                 
 	        </td>
