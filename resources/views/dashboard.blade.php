@@ -6,7 +6,6 @@
        
         <h2 class="text-2xl">{{ $user->name }}さんのマイページ</h2>
         
-        
         <ul class="mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 xl:gap-8">
             @foreach ($photos as $photo)
                 <li class="group h-64 flex justify-end items-end bg-gray-100 overflow-hidden rounded-lg shadow-lg relative">

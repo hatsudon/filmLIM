@@ -1,7 +1,16 @@
 import './bootstrap';
+import '../css/app.css';
+import { createApp } from 'vue'
+//import Alpine from 'alpinejs';
+import ShowMap from './components/ShowMap.vue'
+import ExampleComponent from "./components/ExampleComponent.vue";
 
-import Alpine from 'alpinejs';
+//window.Alpine = Alpine;
 
-window.Alpine = Alpine;
+//Alpine.start();
 
-Alpine.start();
+
+const app = createApp({});
+app.component("example-component", ExampleComponent);
+app.component("show-map", ShowMap);
+app.mount("#app");

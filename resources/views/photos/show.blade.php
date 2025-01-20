@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="prose ml-4">
         <h2>id = {{ $photo->id }} の写真詳細ページ</h2>
     </div>
@@ -25,6 +24,15 @@
         <tr>
             <th>経度</th>
             <td>{{ $photo->longitude }}</td>
+        </tr>
+        
+        <tr>
+            <th>地図</th>
+            <td>
+                <show-map latitude='@json($photo->latitude)' longitude='@json($photo->longitude)'></show-map>
+                
+                
+	        </td>
         </tr>
         
         <tr>
