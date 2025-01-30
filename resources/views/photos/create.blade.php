@@ -20,30 +20,9 @@
                     </select>
                 </div>
                 
-                <div class="form-control my-4">
-                    <label for="latitude" class="label">
-                        <span class="label-text">緯度:</span>
-                    </label>
-                    <input type="text" placeholder="11.111111(小数点以下6桁)" name="latitude" class="input input-bordered w-full">
-                </div>
-                
-                <div class="form-control my-4">
-                    <label for="longitude" class="label">
-                        <span class="label-text">経度:</span>
-                    </label>
-                    <input type="text" placeholder="111.111111(小数点以下6桁)" name="longitude" class="input input-bordered w-full">
-                </div>
-                
-                
-                <div class="form-control my-4">
-                    <label for="memo" class="label">
-                        <span class="label-text">備考:</span>
-                    </label>
-                    <input type="text" name="memo" class="input input-bordered w-full">
-                </div>
-
-            <button type="submit" class="btn btn-primary btn-outline">追加</button>
+                <location-record></location-record>   
         </form>
+        
     </div>
 
 @endsection

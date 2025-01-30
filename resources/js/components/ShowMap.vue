@@ -13,7 +13,7 @@ const props = defineProps({
   }
 })
 
-const map_api_key = import.meta.env.VITE_GOOGLEMAP_API_KEY
+const MAP_API_KEY = import.meta.env.VITE_GOOGLEMAP_API_KEY
 
 const center = { lat: parseFloat(props.latitude), lng: parseFloat(props.longitude) }
 
@@ -22,7 +22,7 @@ const center = { lat: parseFloat(props.latitude), lng: parseFloat(props.longitud
 <template>
 
   <GoogleMap
-  :api-key="map_api_key"
+  :api-key="MAP_API_KEY"
   style="width: 250px; height: 250px"
   :center="center"
   :zoom="15"
