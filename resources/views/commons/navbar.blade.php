@@ -1,5 +1,5 @@
 <header class="mb-4">
-    <nav class="navbar bg-neutral text-neutral-content">
+    <nav class="navbar bg-[#D4C5B1] text-[#8B7D6B]">
         {{-- トップページへのリンク --}}
         <div class="flex-1">
             <h1><a class="btn btn-ghost normal-case text-xl" href="/">FilmLIM</a></h1>

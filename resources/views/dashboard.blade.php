@@ -23,14 +23,38 @@
         </ul>
         
     @else
-        <div class="prose hero bg-base-200 mx-auto max-w-full rounded">
+        <div class="prose hero bg-[#F2E8DC] mx-auto max-w-full rounded">
+            
             <div class="hero-content text-center my-10">
                 <div class="max-w-md mb-10">
-                    <h2>Welcome to the FilmLIM!</h2>
+                    <p class="text-xl text-[#5C4033] mb-8">フイルムカメラの撮影記録アプリケーション</p>
+                    <h1 class="text-5xl font-serif text-[#5C4033] mb-4">FilmLIM</h1>
                     {{-- ユーザー登録ページへのリンク --}}
-                    <a class="btn btn-primary btn-lg normal-case" href="{{ route('register') }}">ユーザー登録はこちら</a>
+                    <a class="no-underline bg-[#8B7D6B] text-[#F2E8DC] px-8 py-3 rounded-full inline-block hover:bg-[#5C4033] transition-colors" 
+                     href="{{ route('register') }}">
+                     今すぐ始める
+                    </a>
                 </div>
             </div>
         </div>
+        
+        <div class="py-20">
+            <h2 class="text-3xl font-bold text-[#5C4033] text-center mb-12">主な機能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#D4C5B1] p-6 rounded-lg film-border">
+                    <h3 class="text-xl text-[#5C4033] font-bold mb-4">日時と位置情報の記録</h3>
+                    <p class="text-sm text-[#5C4033]">撮影した場所を記録します</p>
+                </div>
+                <div class="bg-[#D4C5B1] p-6 rounded-lg film-border">
+                    <h3 class="text-xl text-[#5C4033] font-bold mb-4">アルバム機能</h3>
+                    <p class="text-sm text-[#5C4033]">現像した写真のデータをアップロードすることで、撮影した写真の情報を一覧で確認できます</p>
+                </div>
+                <div class="bg-[#D4C5B1] p-6 rounded-lg film-border">
+                    <h3 class="text-xl text-[#5C4033] font-bold mb-4">カメラ管理</h3>
+                    <p class="text-sm text-[#5C4033]">使っているカメラの情報を記録します</p>
+                </div>
+            </div>
+        </div>
+        
     @endif
 @endsection

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.film-border {
+            box-shadow: 
+                0 0 0 4px #F2E8DC,
+                0 0 0 8px #8B7D6B;
+        }

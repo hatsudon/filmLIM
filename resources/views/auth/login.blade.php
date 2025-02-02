@@ -24,7 +24,7 @@
                 <input type="password" name="password" class="input input-bordered w-full">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block normal-case">ログイン</button>
+            <button type="submit" class="btn bg-[#8B7D6B] text-[#F2E8DC] btn-block normal-case">ログイン</button>
 
             {{-- ユーザー登録ページへのリンク --}}
             <p class="mt-2">初めて利用される方は <a class="link link-hover text-info" href="{{ route('register') }}">ユーザー登録</a></p>
