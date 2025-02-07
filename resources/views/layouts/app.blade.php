@@ -21,5 +21,8 @@
             @yield('content')
             </div>
         </div>
+        <footer>
+            <small>&copy; 2025 Hatsune Saito</small>
+        </footer>
     </body>
 </html>
